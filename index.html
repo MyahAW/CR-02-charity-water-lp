@@ -1,47 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
+    <title>DropQuest | Every Drop Counts</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h2>DROPQUEST</h2>
+                <p>A GAME FOR CLEAN WATER</p>
+            </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#rewards">Rewards</a>
+                <a href="#impact">Impact</a>
+            </div>
+
+            <a href="game/dropquest_prototype.html"class="nav-button">PLAY THE GAME</a>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <h1>DROPQUEST</h1>
+            <h2>Every Drop Counts.</h2>
+
             <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
+                A 60-second challenge where every connection
+                brings clean water closer to a community.
             </p>
+
+            <a href="#challenge" class="black-button">
+                PLAY THE GAME →
+            </a>
         </div>
+
+<div class="hero-game">
+
+    <img
+        src="img/dropquest-game.png"
+        alt="DropQuest clean water pipe puzzle game"
+        class="game-image"
+    >
+
+    <p class="hero-message">
+        PLAY.<br>
+        LEARN.<br>
+        EARN.<br>
+        MAKE AN IMPACT.
+    </p>
+
+</div>
+
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+
+        <h2>How It Works</h2>
+        <p class="section-subtitle">A simple game. A real-world impact.</p>
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-icon">🎮</div>
+                <h3>1. CONNECT</h3>
+                <p>
+                    Rotate the pipes and connect the water
+                    source to the community.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="step-icon">💡</div>
+                <h3>2. LEARN</h3>
+                <p>
+                    Discover quick facts about the global
+                    water crisis while you play.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="step-icon">🏆</div>
+                <h3>3. EARN</h3>
+                <p>
+                    Collect Flow Points and unlock
+                    campus rewards.
+                </p>
+            </div>
+
+        </div>
+
     </section>
+
+
+    <!-- Challenge Section -->
+    <section class="challenge" id="challenge">
+
+        <div class="challenge-text">
+            <h2>The Challenge</h2>
+            <h3>Can you clean the flow?</h3>
+
+            <p>
+                You have 60 seconds to build a working pipeline.
+                Every successful connection delivers clean water
+                and earns Flow Points.
+            </p>
+
+            <a href="game/dropquest_prototype.html" class="yellow-button">START CHALLENGE →</a>
+
+        <div class="challenge-game">
+
+    <div class="challenge-image-box">
+        <img
+            src="img/dropquest-game.png"
+            alt="DropQuest water pipe challenge"
+            class="challenge-image"
+        >
+    </div>
+
+    <p>
+        EVERY<br>
+        CONNECTION<br>
+        COUNTS.
+    </p>
+
+</div>
+
+    </section>
+
+
+    <!-- Rewards -->
+    <section class="rewards" id="rewards">
+
+        <h2>Your Points Can Go Further.</h2>
+
+        <p>
+            Earn Flow Points by completing challenges
+            and learning about clean water.
+        </p>
+
+        <div class="reward-cards">
+
+            <div class="reward-card">
+                <div class="reward-icon">🍽️</div>
+                <h3>Campus Dining Rewards</h3>
+                <p>
+                    Use points toward participating
+                    campus dining options.
+                </p>
+            </div>
+
+            <div class="reward-card">
+                <div class="reward-icon">🏆</div>
+                <h3>Challenges</h3>
+                <p>
+                    Complete new challenges to earn
+                    more points.
+                </p>
+            </div>
+
+            <div class="reward-card">
+                <div class="reward-icon">💧</div>
+                <h3>Impact</h3>
+                <p>
+                    See how your gameplay connects
+                    to the mission of clean water.
+                </p>
+            </div>
+
+        </div>
+
+        <p class="concept-note">
+            Rewards shown are part of this student concept project.
+        </p>
+
+    </section>
+
+
+    <!-- Impact -->
+    <section class="impact" id="impact">
+
+        <div class="impact-visual">
+    <img
+        src="img/clean-water-impact.png"
+        alt="Child accessing clean water"
+        class="impact-image"
+    >
+</div>
+
+        <div class="impact-text">
+
+            <h2>A Game with a Bigger Purpose.</h2>
+
+            <p>
+                DropQuest turns learning about the water crisis
+                into an interactive experience designed for
+                college students.
+            </p>
+
+            <div class="impact-facts">
+
+                <div class="fact">
+                    <h3>703 million</h3>
+                    <p>
+                        people worldwide lack access
+                        to clean water.
+                    </p>
+                </div>
+
+                <div class="fact">
+                    <h3>1 in 4</h3>
+                    <p>
+                        people globally lack access to
+                        safely managed drinking water.
+                    </p>
+                </div>
+
+            </div>
+
+            <p class="source">
+                Source: charity: water
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Final Call to Action -->
+    <section class="final-cta">
+
+        <h2>
+            READY TO MAKE<br>
+            EVERY DROP COUNT?
+        </h2>
+
+        <<a href="game/dropquest_prototype.html" class="yellow-button">
+    PLAY DROPQUEST →
+</a>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+    <div class="footer-brand">
+        <strong>DROPQUEST</strong>
+        <span>×</span>
+        <img src="img/cw_logo.png" alt="charity: water logo">
+    </div>
+
+    <p>A STUDENT CONCEPT PROJECT</p>
+
+</footer>
 </body>
+
 </html>

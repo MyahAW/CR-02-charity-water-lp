@@ -1,198 +1,751 @@
-/* charity: water Brand Colors & Fonts
+/* =========================================
+   DROPQUEST - charity: water Landing Page
+   Student Concept Project
+   ========================================= */
 
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
-
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
-
-Fonts:
-- Proxima Nova
-- Avenir
-
+/* Brand Colors
+   Yellow: #FFC907
+   Blue: #2E9DF7
+   Light Blue: #8BD1CB
+   Black: #111111
+   White: #FFFFFF
 */
 
-/* 
-  Charity: Water Landing Page Styles
-  This CSS uses the provided color palette and beginner-friendly styles.
-*/
 
-/* Set up the main font and background color for the whole page */
+/* ---------- BASIC PAGE STYLES ---------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111111;
+    background-color: white;
+    line-height: 1.5;
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Hero Section Styles */
+
+/* ---------- NAVIGATION ---------- */
+
+header {
+    background-color: white;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo h2 {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.logo p {
+    font-size: 8px;
+    letter-spacing: 3px;
+    margin-top: 4px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #2E9DF7;
+}
+
+.nav-button {
+    background-color: #FFC907;
+    color: #111111;
+    font-weight: bold;
+
+    padding: 12px 22px;
+    border-radius: 30px;
+
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* ---------- HERO ---------- */
+
 .hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
+    min-height: 540px;
+    background-color: #FFC907;
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+
+    padding: 60px 8%;
+    overflow: hidden;
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+.hero-text {
+    max-width: 600px;
 }
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+.hero-text h1 {
+    font-size: 90px;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -5px;
 }
 
-/* Story Section Styles */
-.story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
+.hero-text h2 {
+    font-size: 48px;
+    margin-top: 20px;
 }
 
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
+.hero-text p {
+    font-size: 20px;
+    max-width: 520px;
+    margin: 18px 0 30px;
 }
 
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
+.black-button {
+    display: inline-block;
+
+    background-color: #111111;
+    color: white;
+
+    padding: 18px 35px;
+    border-radius: 40px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: 0.3s;
 }
 
-/* Style the impact story image */
-.impact-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+.black-button:hover {
+    transform: scale(1.05);
+    background-color: #2E9DF7;
 }
 
-/* Donate Button Styles */
-.donate-button {
-  display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
-  border: none;
-  cursor: pointer;
+
+/* ---------- HERO GAME ---------- */
+
+.hero-game {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
-/* Change button color when hovered */
-.donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+.game-card {
+    width: 280px;
+    height: 420px;
+
+    background-color: #10202b;
+    color: white;
+
+    border: 9px solid #111111;
+    border-radius: 45px;
+
+    padding: 25px;
+
+    transform: rotate(5deg);
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Add some spacing between sections */
-section {
-  margin-bottom: 20px;
-}
-
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
-
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
-@media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
-  .hero {
-    padding: 32px 8px;
-    font-size: 1em;
-  }
-
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
-  }
-
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
-  }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
-  }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
+.timer {
     text-align: center;
-  }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
-  }
+    font-size: 22px;
+    font-weight: bold;
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+.water-drop {
+    font-size: 50px;
+    margin-top: 25px;
+}
 
-  .impact-image {
-    width: 300px;
-  }
+.pipes {
+    margin-top: 45px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    color: #2E9DF7;
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.hero-message {
+    font-size: 25px;
+    font-weight: 900;
+    transform: rotate(-5deg);
+}
+
+
+/* ---------- HOW IT WORKS ---------- */
+
+.how-it-works {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 48px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.steps {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 40px;
+}
+
+.step {
+    padding: 20px;
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 20px;
+
+    background-color: #FFC907;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+
+    transition: 0.3s;
+}
+
+.step:hover .step-icon {
+    transform: translateY(-8px);
+}
+
+.step h3 {
+    margin-bottom: 10px;
+}
+
+
+/* ---------- CHALLENGE ---------- */
+
+.challenge {
+    background-color: #111111;
+    color: white;
+
+    padding: 65px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 90px;
+}
+
+.challenge-text {
+    max-width: 480px;
+}
+
+.challenge-text h2 {
+    font-size: 50px;
+}
+
+.challenge-text h3 {
+    color: #FFC907;
+    font-size: 30px;
+    margin: 5px 0 15px;
+}
+
+.challenge-text p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.yellow-button {
+    display: inline-block;
+
+    background-color: #FFC907;
+    color: #111111;
+
+    padding: 15px 30px;
+    border-radius: 30px;
+
+    font-weight: 900;
+
+    transition: 0.3s;
+}
+
+.yellow-button:hover {
+    transform: scale(1.05);
+    background-color: #2E9DF7;
+}
+
+
+/* ---------- MINI GAME ---------- */
+
+.challenge-game {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.mini-game {
+    width: 430px;
+
+    background-color: #142633;
+    border: 7px solid #333333;
+    border-radius: 35px;
+
+    padding: 25px;
+
+    text-align: center;
+}
+
+.pipe-row {
+    font-size: 42px;
+    color: #2E9DF7;
+    margin: 12px;
+}
+
+.challenge-game > p {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+
+    transform: rotate(-5deg);
+}
+
+
+/* ---------- REWARDS ---------- */
+
+.rewards {
+    background-color: #FFC907;
+
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.rewards > h2 {
+    font-size: 42px;
+}
+
+.rewards > p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.reward-cards {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.reward-card {
+    background-color: white;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    text-align: left;
+
+    transition: 0.3s;
+}
+
+.reward-card:hover {
+    transform: translateY(-8px);
+}
+
+.reward-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.reward-card h3 {
+    margin-bottom: 8px;
+}
+
+.concept-note {
+    margin-top: 25px;
+    font-size: 13px !important;
+}
+
+
+/* ---------- IMPACT ---------- */
+
+.impact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 430px;
+}
+
+.impact-visual {
+    background-color: #2E9DF7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.big-drop {
+    font-size: 180px;
+
+    transition: 0.4s;
+}
+
+.big-drop:hover {
+    transform: scale(1.1);
+}
+
+.impact-text {
+    padding: 60px;
+}
+
+.impact-text h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.impact-text > p {
+    font-size: 18px;
+}
+
+.impact-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.fact {
+    border-left: 4px solid #FFC907;
+    padding-left: 20px;
+}
+
+.fact h3 {
+    font-size: 34px;
+}
+
+.source {
+    font-size: 12px !important;
+    margin-top: 30px;
+}
+
+
+/* ---------- FINAL CTA ---------- */
+
+.final-cta {
+    background-color: #111111;
+    color: white;
+
+    padding: 70px 20px;
+
+    text-align: center;
+}
+
+.final-cta h2 {
+    font-size: 55px;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background-color: #080808;
+    color: white;
+
+    padding: 25px 8%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer strong {
+    font-size: 20px;
+}
+
+footer p {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   Makes the page work on phones/tablets
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 65px;
+    }
+
+    .hero-text h2 {
+        font-size: 38px;
+    }
+
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .challenge {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .challenge-game {
+        flex-direction: column;
+    }
+
+    .reward-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .impact {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px;
+    }
+
+    .logo h2 {
+        font-size: 20px;
+    }
+
+    .nav-button {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .hero-text h2 {
+        font-size: 30px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .hero-game {
+        flex-direction: column;
+    }
+
+    .game-card {
+        width: 230px;
+        height: 350px;
+    }
+
+    .pipes {
+        font-size: 40px;
+    }
+
+    .how-it-works h2,
+    .challenge-text h2,
+    .rewards > h2,
+    .impact-text h2 {
+        font-size: 34px;
+    }
+
+    .mini-game {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .pipe-row {
+        font-size: 32px;
+    }
+
+    .impact-text {
+        padding: 40px 25px;
+    }
+
+    .impact-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .final-cta h2 {
+        font-size: 38px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+}
+
+/* DropQuest game image */
+/* Challenge game image */
+
+.challenge-image-box {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    border: 7px solid #333333;
+    border-radius: 35px;
+    background-color: #10202b;
+}
+
+.challenge-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* Zooms into the actual puzzle instead of showing the whole phone */
+    object-position: center 42%;
+    transform: scale(1.65);
+    transition: 0.3s;
+}
+
+.challenge-image:hover {
+    transform: scale(1.72);
+}
+
+@media (max-width: 600px) {
+    .challenge-image-box {
+        width: 100%;
+        max-width: 350px;
+        height: 230px;
+    }
+}/* Clean water impact photo */
+
+.impact-visual {
+    overflow: hidden;
+}
+
+.impact-image {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: 0.4s;
+}
+
+.impact-image:hover {
+    transform: scale(1.03);
+}/* Footer charity: water branding */
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-brand img {
+    max-width: 120px;
+    max-height: 45px;
+    object-fit: contain;
+}
+
+.footer-brand span {
+    font-size: 20px;
+}/* Final mobile adjustments */
+
+@media (max-width: 600px) {
+
+    .game-image {
+        width: 210px;
+        max-height: 390px;
+        object-fit: cover;
+        object-position: top;
+        transform: rotate(0deg);
+        margin: 0 auto;
+    }
+
+    .game-image:hover {
+        transform: scale(1.02);
+    }
+
+    .hero-game {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .hero-message {
+        text-align: center;
+        transform: rotate(-4deg);
+    }
+
 }

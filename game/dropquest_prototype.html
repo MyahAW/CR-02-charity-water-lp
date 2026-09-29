@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DROPQUEST — Clean the Flow</title>
+<style>
+  .back-button {
+    display: inline-block;
+    margin: 15px 25px 5px;
+    padding: 10px 18px;
+    background-color: #FFC907;
+    color: #111111;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    transform: translateX(-4px);
+}
+:root{
+  --yellow:#FFC700;
+  --teal:#00A19D;
+  --ink:#111111;
+  --paper:#FFFDF7;
+  --blue:#2CB7E8;
+  --muted:#667085;
+  --card:#FFFFFF;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#fffdf7 0%,#f6fbfb 100%);color:var(--ink)}
+.app{max-width:980px;margin:0 auto;min-height:100vh;padding:24px}
+.brandbar{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}
+.logo{font-size:30px;font-weight:900;letter-spacing:-1px}.logo span{color:var(--yellow)}
+.tag{font-size:14px;color:var(--muted)}
+.card{background:var(--card);border:2px solid #111;border-radius:24px;box-shadow:8px 8px 0 rgba(17,17,17,.08);padding:28px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:center}
+.hero h1{font-size:clamp(42px,7vw,74px);line-height:.95;margin:0 0 16px}.hero h1 em{font-style:normal;color:var(--teal)}
+.hero p{font-size:18px;line-height:1.5;max-width:620px}
+.jerry{width:210px;height:260px;background:var(--yellow);border:6px solid #111;border-radius:30px 30px 38px 38px;margin:auto;position:relative;transform:rotate(2deg)}
+.jerry:before{content:"";position:absolute;width:90px;height:42px;border:6px solid #111;border-bottom:none;border-radius:18px 18px 0 0;left:54px;top:-44px;background:var(--paper)}
+.drop{position:absolute;left:76px;top:84px;font-size:72px}
+.btn{appearance:none;border:none;border-radius:14px;background:var(--yellow);color:#111;font-weight:800;padding:15px 22px;font-size:17px;cursor:pointer;box-shadow:0 4px 0 #c59b00}.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #c59b00}
+.btn.secondary{background:#fff;border:2px solid #111;box-shadow:none}
+.rewardstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.reward{border:1.5px solid #ddd;border-radius:16px;padding:14px}.reward strong{display:block;font-size:18px}
+.screen{display:none}.screen.active{display:block}
+.hud{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}.hud div{background:#fff;border:1.5px solid #ddd;border-radius:14px;padding:12px;text-align:center}.hud b{font-size:22px;display:block}
+.gamewrap{display:grid;grid-template-columns:1fr 260px;gap:20px}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:#6c4a2a;padding:12px;border:5px solid #111;border-radius:20px;aspect-ratio:1/1}
+.tile{position:relative;background:#4d351f;border:2px solid #8a6543;border-radius:12px;cursor:pointer;overflow:hidden;min-height:72px}.tile::before,.tile::after{content:"";position:absolute;background:#d8d8d8;border:3px solid #111}.tile.straight::before{width:26px;height:120%;left:50%;top:-10%;transform:translateX(-50%);border-radius:16px}.tile.corner::before{width:26px;height:58%;left:50%;top:-4%;transform:translateX(-50%);border-radius:16px}.tile.corner::after{height:26px;width:58%;left:50%;top:50%;border-radius:16px}.tile.rot0{transform:rotate(0deg)}.tile.rot90{transform:rotate(90deg)}.tile.rot180{transform:rotate(180deg)}.tile.rot270{transform:rotate(270deg)}
+.tile.source{outline:5px solid var(--blue)}.tile.goal{outline:5px solid var(--yellow)}.tile.connected{background:#245f70}.tile.connected::before,.tile.connected::after{background:var(--blue)}
+.tile .label{position:absolute;inset:auto 4px 4px 4px;text-align:center;font-size:11px;font-weight:800;color:white;z-index:3;text-shadow:0 1px 2px #000}
+.side{display:flex;flex-direction:column;gap:12px}.panel{background:#fff;border:1.5px solid #ddd;border-radius:16px;padding:16px}.panel h3{margin:0 0 8px}.progress{height:14px;background:#e8e8e8;border-radius:999px;overflow:hidden}.progress>div{height:100%;width:0;background:var(--yellow);transition:.2s}
+.toast{min-height:54px;border-radius:14px;padding:12px;background:#eefafa;border:1px solid #b5e1df;font-weight:700}
+.end{text-align:center;max-width:680px;margin:30px auto}.end h2{font-size:46px;margin-bottom:8px}.meal{font-size:28px;font-weight:900;color:var(--teal)}
+.small{font-size:13px;color:var(--muted)}
+@media(max-width:760px){.hero,.gamewrap{grid-template-columns:1fr}.jerry{width:160px;height:200px}.rewardstrip{grid-template-columns:1fr}.hud{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+  <a href="../index.html" class="back-button">← BACK TO DROPQUEST</a>
+<div class="app">
+  <div class="brandbar">
+    <div class="logo">DROP<span>QUEST</span></div>
+    <div class="tag">A charity: water inspired campus challenge</div>
+  </div>
+
+  <section id="start" class="screen active">
+    <div class="card hero">
+      <div>
+        <div class="small">EVERY DROP COUNTS</div>
+        <h1>Clean the <em>Flow.</em></h1>
+        <p>Rotate the pipes and connect clean water from the source to the community before time runs out. Learn about the water crisis, earn Flow Points, and unlock campus dining rewards.</p>
+        <button class="btn" id="startBtn">START MISSION</button>
+        <div class="rewardstrip">
+          <div class="reward"><strong>2,500 pts</strong>$3 Chick-fil-A Meal Dollars</div>
+          <div class="reward"><strong>3,500 pts</strong>$5 Premium Dining Dollars</div>
+          <div class="reward"><strong>5,000 pts</strong>$8 Dining Bonus</div>
+        </div>
+      </div>
+      <div class="jerry"><div class="drop">💧</div></div>
+    </div>
+  </section>
+
+  <section id="game" class="screen">
+    <div class="hud">
+      <div><span>Time</span><b id="time">60</b></div>
+      <div><span>Score</span><b id="score">0</b></div>
+      <div><span>Flow Points</span><b id="points">0</b></div>
+      <div><span>Streak</span><b id="streak">0</b></div>
+    </div>
+    <div class="gamewrap">
+      <div class="board" id="board"></div>
+      <div class="side">
+        <div class="panel"><h3>Mission</h3><p>Connect the blue water source to the yellow community tile.</p><div class="progress"><div id="progressBar"></div></div></div>
+        <div class="toast" id="toast">Tap a pipe to rotate it.</div>
+        <div class="panel"><h3>Campus Reward</h3><p><b>2,500 Flow Points</b> = $3 Chick-fil-A Meal Dollars</p><p class="small">Rewards can also be used toward other campus dining locations that cost extra.</p></div>
+        <button class="btn secondary" id="resetBtn">RESET PUZZLE</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="end" class="screen">
+    <div class="card end">
+      <div class="small">MISSION COMPLETE</div>
+      <h2>Clean water reached the community! 💧</h2>
+      <p id="impactText">Access to clean water can support health, education, and opportunity.</p>
+      <div class="meal" id="mealText">You earned 0 Flow Points.</div>
+      <p><b>100% of public donations go directly to water projects.</b></p>
+      <p><a href="https://www.charitywater.org" target="_blank">Learn more or donate at charitywater.org</a></p>
+      <button class="btn" id="replayBtn">PLAY AGAIN</button>
+    </div>
+  </section>
+</div>
+
+<script>
+const startScreen=document.getElementById('start');
+const gameScreen=document.getElementById('game');
+const endScreen=document.getElementById('end');
+const board=document.getElementById('board');
+const timeEl=document.getElementById('time');
+const scoreEl=document.getElementById('score');
+const pointsEl=document.getElementById('points');
+const streakEl=document.getElementById('streak');
+const toast=document.getElementById('toast');
+const progressBar=document.getElementById('progressBar');
+let timer=null,timeLeft=60,score=0,points=0,streak=0;
+const N=4;
+
+// Connector directions: 0=up,1=right,2=down,3=left
+const solution=[
+ {type:'corner',rot:90},{type:'straight',rot:90},{type:'corner',rot:180},{type:'corner',rot:90},
+ {type:'corner',rot:0},{type:'straight',rot:90},{type:'corner',rot:270},{type:'straight',rot:0},
+ {type:'straight',rot:0},{type:'corner',rot:90},{type:'corner',rot:180},{type:'straight',rot:0},
+ {type:'corner',rot:0},{type:'straight',rot:90},{type:'straight',rot:90},{type:'corner',rot:270}
+];
+let tiles=[];
+function dirsFor(type,rot){
+  let dirs=type==='straight'?[0,2]:[0,1];
+  const k=((rot/90)%4+4)%4;
+  return dirs.map(d=>(d+k)%4);
+}
+function idx(r,c){return r*N+c}
+function randomRot(){return [0,90,180,270][Math.floor(Math.random()*4)]}
+function buildBoard(){
+  board.innerHTML=''; tiles=[];
+  solution.forEach((s,i)=>{
+    const div=document.createElement('div');
+    const rot=randomRot();
+    const tile={type:s.type,rot,el:div}; tiles.push(tile);
+    div.className=`tile ${s.type} rot${rot}`;
+    if(i===0){div.classList.add('source');div.innerHTML='<span class="label">WATER SOURCE</span>'}
+    if(i===15){div.classList.add('goal');div.innerHTML='<span class="label">COMMUNITY</span>'}
+    div.addEventListener('click',()=>rotateTile(i));
+    board.appendChild(div);
+  });
+  checkFlow();
+}
+function rotateTile(i){
+  tiles[i].rot=(tiles[i].rot+90)%360;
+  tiles[i].el.classList.remove('rot0','rot90','rot180','rot270');
+  tiles[i].el.classList.add(`rot${tiles[i].rot}`);
+  score+=10; points+=25; streak+=1;
+  scoreEl.textContent=score; pointsEl.textContent=points; streakEl.textContent=streak;
+  toast.textContent='Nice! +25 Flow Points';
+  checkFlow();
+}
+function neighbors(i){
+  const r=Math.floor(i/N),c=i%N, ds=dirsFor(tiles[i].type,tiles[i].rot), out=[];
+  for(const d of ds){
+    let nr=r,nc=c;if(d===0)nr--;if(d===1)nc++;if(d===2)nr++;if(d===3)nc--;
+    if(nr<0||nr>=N||nc<0||nc>=N)continue;
+    const j=idx(nr,nc), back=(d+2)%4;
+    if(dirsFor(tiles[j].type,tiles[j].rot).includes(back)) out.push(j);
+  }
+  return out;
+}
+function checkFlow(){
+  tiles.forEach(t=>t.el.classList.remove('connected'));
+  const seen=new Set([0]),q=[0];
+  while(q.length){const i=q.shift();tiles[i].el.classList.add('connected');for(const j of neighbors(i)){if(!seen.has(j)){seen.add(j);q.push(j)}}}
+  progressBar.style.width=`${Math.round(seen.size/tiles.length*100)}%`;
+  if(seen.has(15)){score+=500;points+=750;scoreEl.textContent=score;pointsEl.textContent=points;finish(true)}
+}
+function startGame(){
+  startScreen.classList.remove('active');endScreen.classList.remove('active');gameScreen.classList.add('active');
+  timeLeft=60;score=0;points=0;streak=0;timeEl.textContent=timeLeft;scoreEl.textContent=0;pointsEl.textContent=0;streakEl.textContent=0;
+  buildBoard(); clearInterval(timer); timer=setInterval(()=>{timeLeft--;timeEl.textContent=timeLeft;if(timeLeft<=0)finish(false)},1000);
+}
+function finish(win){
+  clearInterval(timer);
+  gameScreen.classList.remove('active');endScreen.classList.add('active');
+  const earned=points+(win?500:0);
+  document.getElementById('mealText').textContent=`You earned ${earned} Flow Points toward campus meal dollars.`;
+  document.getElementById('impactText').textContent=win?'You connected the flow. Clean water can support stronger health, school attendance, and opportunity.':'Time ran out, but every attempt builds awareness. Try again and complete the flow!';
+}
+document.getElementById('startBtn').onclick=startGame;
+document.getElementById('replayBtn').onclick=startGame;
+document.getElementById('resetBtn').onclick=()=>{buildBoard();toast.textContent='Puzzle reset — keep going!'};
+</script>
+</body>
+</html>
